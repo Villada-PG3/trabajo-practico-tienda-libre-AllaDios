@@ -17,21 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from tienda.views import lista_productos, detalle_producto
+#from tienda.views import lista_productos, detalle_producto
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-
-    path(
-            "productos/",
-            lista_productos,
-            name="lista_productos"
-        ),
-
-        path(
-            "productos/<int:id>/",
-            detalle_producto,
-            name="detalle_producto"
-        ),
 
 ]
