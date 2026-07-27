@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>{{ producto.nombre }}</title>
+  </head>
+
+  <body>
+    <main>
+      <a href="{% url 'lista_productos' %}"> ← Volver a productos </a>
+
+      <h1>{{ producto.nombre }}</h1>
+
+      <p>Precio: $ {{ producto.precio }}</p>
+
+      <p>Stock: {{ producto.stock }} unidades</p>
+
+      <p>Descripción: {{ producto.descripcion }}</p>
+
+      <!-- Acá agregás el resto de los campos -->
+    </main>
+  </body>
+</html>
