@@ -1,12 +1,9 @@
-<!doctype html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Tienda Libre</title>
-  </head>
-  <body>
-    <h1>Bienvenido a Tienda Libre</h1>
-
-    <p>Este es mi primer template en Django.</p>
-  </body>
-</html>
+{% extends 'tienda/base.html' %}
+{% block title %}Inicio{% endblock %}
+{% block content %}
+<div class="text-center">
+  <h1 class="display-4">Bienvenido a mi tienda</h1>
+  <p class="lead">Esta es la página principal.</p>
+  <a href="/productos/" class="btn btn-primary">Ver productos</a>
+</div>
+{% endblock %}

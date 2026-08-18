@@ -1,18 +1,10 @@
-<!doctype html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Acerca de mí</title>
-  </head>
-  <body>
-    <h1>Acerca de mí</h1>
-
-    <p>Hola, soy Lautaro Alladio.</p>
-    <p>
-      Estoy estudiando Programación en el Instituto Técnico Salesiano Villada.
-    </p>
-    <p>
-      Actualmente estoy aprendiendo Django para desarrollar aplicaciones web.
-    </p>
-  </body>
-</html>
+{% extends "tienda/base.html" %}
+{% block title %}Acerca de mí{% endblock %}
+{% block content %}
+<section class="container py-5">
+  <h1>Acerca de mí</h1>
+  <p>Hola, soy Lautaro Alladio.</p>
+  <p>Estoy estudiando Programación en el Instituto Técnico Salesiano Villada.</p>
+  <p>Actualmente estoy aprendiendo Django para desarrollar aplicaciones web.</p>
+</section>
+{% endblock %}
