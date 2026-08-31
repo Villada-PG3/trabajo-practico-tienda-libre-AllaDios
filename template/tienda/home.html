@@ -1,9 +1,52 @@
 {% extends 'tienda/base.html' %}
-{% block title %}Inicio{% endblock %}
+{% load static %}
+{% block title %}Inicio - TiendaLibre{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'tienda/css/estilos.css' %}">
+{% endblock %}
+
 {% block content %}
-<div class="text-center">
-  <h1 class="display-4">Bienvenido a mi tienda</h1>
-  <p class="lead">Esta es la página principal.</p>
-  <a href="/productos/" class="btn btn-primary">Ver productos</a>
+<div class="container">
+    <div class="p-4 mb-4 bg-white rounded-3 shadow-sm border">
+        <div class="container-fluid">
+            <h1 class="display-5 fw-bold text-primary">¡Bienvenido a TiendaLibre!</h1>
+        </div>
+    </div>
+
+    {% if usuario_logueado %}
+        <div class="alert alert-success" role="alert">
+            ¡Bienvenido, {{ nombre_usuario|title }}! Hoy es {{ fecha_hoy|date:"d/m/Y" }}.
+        </div>
+
+        <section>
+            <h2 class="h3 mb-3">{{ titulo|upper }}</h2>
+            <p class="text-muted">Hay {{ productos|length }} productos destacados.</p>
+            <div class="row g-3">
+                {% for producto in productos %}
+                    <div class="col-md-4">
+                        <article class="card h-100 shadow-sm">
+                            <div class="card-body">
+                                <h3 class="h5 card-title">{{ producto.nombre|title }}</h3>
+                                {% if producto.precio %}
+                                    <p class="card-text fw-bold">${{ producto.precio|floatformat:2 }}</p>
+                                {% else %}
+                                    <p class="card-text fw-bold">{{ producto.precio|default:"Sin precio disponible" }}</p>
+                                {% endif %}
+                            </div>
+                        </article>
+                    </div>
+                {% empty %}
+                    <div class="col-12">
+                        <p class="text-muted">No hay productos destacados disponibles.</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    {% else %}
+        <div class="alert alert-warning" role="alert">
+            Debes iniciar sesión para ver los productos destacados.
+        </div>
+    {% endif %}
 </div>
 {% endblock %}
