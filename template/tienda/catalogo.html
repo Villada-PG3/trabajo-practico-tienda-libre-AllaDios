@@ -36,7 +36,7 @@
 
           <p class="fw-bold">${{ producto.precio }}</p>
 
-          <a href="#" class="btn btn-primary"> Ver producto </a>
+          <a href="{% url 'tienda:detalle_producto' producto.pk %}" class="btn btn-primary"> Ver producto </a>
         </div>
       </div>
     </div>
